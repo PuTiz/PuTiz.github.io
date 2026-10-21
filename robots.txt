@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://justwander.top/sitemap.xml
+Sitemap: https://justwander.top/image-sitemap.xml

@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Just Wander China · 85-city travel map, attractions and food</title>
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+  
+<meta name="description" content="Bilingual travel map of 85 Chinese cities — attractions, local food, best seasons and culture.">
+<link rel="canonical" href="https://justwander.top/en/index.html">
+<link rel="alternate" href="https://justwander.top/en/index.html" hreflang="x-default">
+<link rel="alternate" href="https://justwander.top/en/index.html" hreflang="en">
+<link rel="alternate" href="https://justwander.top/zh-CN/index.html" hreflang="zh-CN">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Just Wander China">
+<meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:title" content="Just Wander China · 85-city travel map, attractions and food">
+<meta property="og:description" content="Bilingual travel map of 85 Chinese cities — attractions, local food, best seasons and culture.">
+<meta property="og:url" content="https://justwander.top/en/index.html">
+<meta property="og:image" content="https://justwander.top/assets/images/og-cover.png">
+<meta property="og:image:alt" content="Just Wander China">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Just Wander China · 85-city travel map, attractions and food">
+<meta name="twitter:description" content="Bilingual travel map of 85 Chinese cities — attractions, local food, best seasons and culture.">
+<meta name="twitter:image" content="https://justwander.top/assets/images/og-cover.png">
+<meta name="twitter:image:alt" content="Just Wander China">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://justwander.top/en/index.html#website","name":"Just Wander China","url":"https://justwander.top/en/index.html","inLanguage":"en","about":{"@type":"Country","name":"China"},"publisher":{"@type":"Organization","@id":"https://justwander.top/en/index.html#organization","name":"Just Wander China","alternateName":["羚游"],"slogan":"See it. Walk it. Feel it.","url":"https://justwander.top/en/index.html","logo":"https://justwander.top/assets/images/logo-mark.png"}}</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body class="page-index">
+  <header class="site-header">
+    <div class="brand">
+      <img src="/assets/images/logo-mark-64.png" alt="" class="brand-logo-img" aria-hidden="true" />
+      <div class="brand-text">
+        <h1 data-i18n="brand">Just Wander China</h1>
+        <p class="tagline" data-i18n="tagline">See it · Walk it · Feel it — This is real China.</p>
+      </div>
+    </div>
+    <div class="header-search">
+      <label class="sr-only" for="citySearch">Search a city, e.g. Beijing</label>
+      <input id="citySearch" class="search-box" type="search" placeholder="Search a city, e.g. Beijing" data-i18n-ph="searchPlaceholder" />
+    </div>
+    <nav class="header-nav">
+      <a href="cities/index.html" data-i18n="allCities">All Cities</a>
+      <a id="langToggle" class="lang-toggle" href="../zh-CN/index.html">中</a>
+    </nav>
+  </header>
+
+  <main class="map-wrap">
+    <div id="chinaMap" role="img" aria-label="Interactive heat map of 85 Chinese cities. Open a city from the popular city list."></div>
+
+    <!-- Zoom controls -->
+    <div class="map-controls">
+      <button id="zoomIn" type="button" aria-controls="chinaMap" aria-label="+" title="+">+</button>
+      <button id="zoomOut" type="button" aria-controls="chinaMap" aria-label="−" title="−">&minus;</button>
+      <button id="labelToggle" type="button" aria-controls="chinaMap" aria-label="Show all city names" title="Show all city names">All</button>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend">
+      <div class="legend-title" data-i18n="legendTitle">Heat Legend</div>
+      <div class="legend-row"><span class="swatch sw-red" aria-hidden="true"></span><span data-i18n="legendHigh">Very High (90+)</span></div>
+      <div class="legend-row"><span class="swatch sw-orange" aria-hidden="true"></span><span data-i18n="legendMidHigh">High (80–89)</span></div>
+      <div class="legend-row"><span class="swatch sw-yellow" aria-hidden="true"></span><span data-i18n="legendMid">Medium-High (70–79)</span></div>
+      <div class="legend-row"><span class="swatch sw-green" aria-hidden="true"></span><span data-i18n="legendMidLow">Medium (60–69)</span></div>
+      <div class="legend-row"><span class="swatch sw-blue" aria-hidden="true"></span><span data-i18n="legendLow">Low (&lt;60)</span></div>
+      <div class="legend-row"><span class="swatch sw-gray" aria-hidden="true"></span><span data-i18n="legendNoData">No data</span></div>
+    </div>
+
+    <!-- Tip box -->
+    <div class="map-tip" data-i18n="hint">Click a city area for details</div>
+
+    <!-- Search feedback (aria-live) -->
+    <div class="search-status" id="searchStatus" role="status" aria-live="polite"></div>
+
+    <!-- Hot cities floating bar -->
+    <div class="hot-cities-bar" id="hotCitiesBar">
+      <div class="hot-cities-header">
+        <h2 data-i18n="hotCityTitle">Popular Cities</h2>
+        <button class="shuffle-btn" id="shuffleBtn" type="button" aria-controls="hotCitiesGrid">
+          <span class="shuffle-icon" aria-hidden="true">馃攧</span>
+          <span data-i18n="shuffle">Shuffle</span>
+        </button>
+      </div>
+      <div class="hot-cities-grid" id="hotCitiesGrid"><a class="hot-city-card" href="cities/beijing/index.html"><div class="hot-city-card-img"><img src="/assets/images/beijing/beijing.webp" alt="Beijing" width="800" height="400" decoding="async" fetchpriority="high"></div><div class="hot-city-card-body"><div class="hot-city-card-name">Beijing</div><div class="hot-city-card-heat heat-level-very-high">Popularity: Very High</div></div></a><a class="hot-city-card" href="cities/shanghai/index.html"><div class="hot-city-card-img"><img src="/assets/images/shanghai/shanghai.webp" alt="Shanghai" width="800" height="400" decoding="async" loading="lazy"></div><div class="hot-city-card-body"><div class="hot-city-card-name">Shanghai</div><div class="hot-city-card-heat heat-level-very-high">Popularity: Very High</div></div></a><a class="hot-city-card" href="cities/xian/index.html"><div class="hot-city-card-img"><img src="/assets/images/xian/xian.webp" alt="Xi&#x27;an" width="800" height="400" decoding="async" loading="lazy"></div><div class="hot-city-card-body"><div class="hot-city-card-name">Xi&#x27;an</div><div class="hot-city-card-heat heat-level-very-high">Popularity: Very High</div></div></a><a class="hot-city-card" href="cities/chengdu/index.html"><div class="hot-city-card-img"><img src="/assets/images/chengdu/chengdu.webp" alt="Chengdu" width="800" height="400" decoding="async" loading="lazy"></div><div class="hot-city-card-body"><div class="hot-city-card-name">Chengdu</div><div class="hot-city-card-heat heat-level-very-high">Popularity: Very High</div></div></a><a class="hot-city-card" href="cities/chongqing/index.html"><div class="hot-city-card-img"><img src="/assets/images/chongqing/chongqing.webp" alt="Chongqing" width="800" height="400" decoding="async" loading="lazy"></div><div class="hot-city-card-body"><div class="hot-city-card-name">Chongqing</div><div class="hot-city-card-heat heat-level-very-high">Popularity: Very High</div></div></a><a class="hot-city-card" href="cities/hangzhou/index.html"><div class="hot-city-card-img"><img src="/assets/images/hangzhou/hangzhou.webp" alt="Hangzhou" width="800" height="400" decoding="async" loading="lazy"></div><div class="hot-city-card-body"><div class="hot-city-card-name">Hangzhou</div><div class="hot-city-card-heat heat-level-very-high">Popularity: Very High</div></div></a></div>
+    </div>
+  </main>
+
+  <!-- custom hover card -->
+  <div class="hover-card" id="hoverCard">
+    <div class="hover-card-header">
+      <div class="hover-card-title">
+        <span class="city-name" id="cardCityName"></span>
+        <span class="province-text" id="cardProvince"></span>
+      </div>
+    </div>
+    <div class="hover-card-body">
+      <div class="hover-card-content">
+        <div class="hover-card-img-placeholder" id="cardImage">
+          <img id="cardImageImg" alt="" />
+          <span id="cardImagePlaceholder">馃彌</span>
+        </div>
+        <div class="hover-card-info">
+          <div class="info-section">
+            <div class="info-label" data-i18n="scenery">Highlights</div>
+            <div class="info-text" id="cardScenery"></div>
+          </div>
+          <div class="info-section">
+            <div class="info-label" data-i18n="food">Local Food</div>
+            <div class="info-text" id="cardFood"></div>
+          </div>
+          <div class="info-section">
+            <div class="info-label" data-i18n="bestSeason">Best Season</div>
+            <div class="info-text" id="cardBestSeason"></div>
+          </div>
+        </div>
+      </div>
+      <div class="hover-card-rating" id="cardRating"></div>
+    </div>
+  </div>
+
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/utils.js"></script>
+  <script src="/assets/map/map-loader.js"></script>
+  <script>
+    document.getElementById('citySearch').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        if (window.doSearch) window.doSearch(this.value)
+      }
+    })
+  </script>
+</body>
+</html>
