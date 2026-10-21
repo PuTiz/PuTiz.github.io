@@ -2,4 +2,4 @@
 <html lang="en"><head><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Just Wander China</title>
 <style>body{font-family:system-ui,sans-serif;padding:3rem;text-align:center}a{margin:0 .75rem}</style></head>
 <body><p>Choose your language / 选择语言</p><p><a href="en/index.html">English</a><a href="zh-CN/index.html">中文</a></p>
-<script>(function(){var saved=localStorage.getItem("jwc_lang");var browser=(navigator.language||"").toLowerCase();var paths={"en": "en", "zh": "zh-CN"};var code=paths[saved]?saved:null;if(!code){for(var key in paths){if(browser.indexOf(key.toLowerCase())===0){code=key;break}}}location.replace((paths[code||"en"]||"en")+"/index.html")})()</script></body></html>
+<script>(function(){var saved=localStorage.getItem("jwc_lang");if(saved==="zh-CN")saved="zh";var paths={"en": "en", "zh": "zh-CN"};var code=paths[saved]?saved:"en";location.replace((paths[code]||"en")+"/index.html")})()</script></body></html>
